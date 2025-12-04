@@ -83,10 +83,6 @@ public class CSVReader_Writer {
     }
 
     public static void saveLastNames(List <String> lastNames){
-        if (lastNames == null){
-            throw new NullPointerException("error!");
-        }
-
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"))) {
             for(String toWrite : lastNames){
                 writer.append(toWrite+",");
@@ -98,10 +94,6 @@ public class CSVReader_Writer {
     }
 
     public static void saveFemaleNames(List <String> femaleNames){
-        if (femaleNames == null){
-            throw new NullPointerException("error!");
-        }
-
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"))) {
             for (String toWrite : femaleNames) {
                 writer.append(toWrite + ",");
@@ -113,10 +105,6 @@ public class CSVReader_Writer {
     }
 
     public static void saveMaleNames(List <String> maleNames){
-        if (maleNames == null){
-            throw new NullPointerException("error!");
-        }
-
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"))) {
             for(String toWrite : maleNames){
                 writer.append(toWrite+",");

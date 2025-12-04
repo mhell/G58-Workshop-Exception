@@ -16,7 +16,6 @@ public class NameService {
 
 	    //should be no nulls
 	    public NameService(List<String> maleFirstNames, List<String> femaleFirstNames, List<String> lastNames) {
-
 	        this.maleFirstNames = maleFirstNames;
 	        this.femaleFirstNames = femaleFirstNames;
 	        this.lastNames = lastNames;
@@ -35,7 +34,6 @@ public class NameService {
 	        }
 	        return person;
 	    }
-
 
 	    public String getRandomFemaleFirstName(){
 	        return femaleFirstNames.get(random.nextInt(femaleFirstNames.size()));
@@ -66,7 +64,6 @@ public class NameService {
             }
 	    	femaleFirstNames.add(name);
 	    	CSVReader_Writer.saveFemaleNames(femaleFirstNames);
-	    		
 	    }
 
 	    /**
