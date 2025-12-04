@@ -45,7 +45,7 @@ public class CSVReader_Writer {
      * This method getFemaleFirstNames should make use of a try-catch with resources
      * @return
      */
-    public static List<String> getFemaleFirstNames(){
+    public static List<String> getFemaleFirstNames() {
         List<String> names=null;
 
         try (BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"))) {
@@ -82,33 +82,49 @@ public class CSVReader_Writer {
         return names;
     }
 
-
     public static void saveLastNames(List <String> lastNames){
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"));
+        if (lastNames == null){
+            throw new NullPointerException("error!");
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"))) {
             for(String toWrite : lastNames){
                 writer.append(toWrite+",");
             }
             writer.flush();
-      }
-
-    public static void saveFemaleNames(List <String> femaleNames){
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"));
-            for(String toWrite : femaleNames){
-                writer.append(toWrite+",");
-            }
-            writer.flush();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
+    public static void saveFemaleNames(List <String> femaleNames){
+        if (femaleNames == null){
+            throw new NullPointerException("error!");
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"))) {
+            for (String toWrite : femaleNames) {
+                writer.append(toWrite + ",");
+            }
+            writer.flush();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void saveMaleNames(List <String> maleNames){
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"));
+        if (maleNames == null){
+            throw new NullPointerException("error!");
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"))) {
             for(String toWrite : maleNames){
                 writer.append(toWrite+",");
             }
             writer.flush();
-
-
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
 
 }

@@ -60,7 +60,7 @@ public class NameService {
 	     * DuplicateNameException.
 	     * @param name
 	     */
-	    public void addFemaleFirstName(String name) {
+	    public void addFemaleFirstName(String name) throws DuplicateNameException {
             if (femaleFirstNames.contains(name)) {
                 throw new DuplicateNameException("The name '" + name + "' already in the list");
             }
@@ -75,7 +75,7 @@ public class NameService {
 	     * DuplicateNameException.
 	     * @param name
 	     */
-	    public void addMaleFirstName(String name){
+	    public void addMaleFirstName(String name) throws DuplicateNameException {
             if (maleFirstNames.contains(name)) {
                 throw new DuplicateNameException("The name '" + name + "' already in the list");
             }
@@ -89,7 +89,7 @@ public class NameService {
 	     * DuplicateNameException.
 	     * @param lastName
 	     */
-	    public void addLastName(String lastName){
+	    public void addLastName(String lastName) throws DuplicateNameException {
             if (lastNames.contains(lastName)) {
                 throw new DuplicateNameException("The name '" + lastName + "' already in the list");
             }
